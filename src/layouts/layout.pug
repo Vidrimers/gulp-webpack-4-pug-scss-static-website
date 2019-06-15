@@ -1,0 +1,26 @@
+include ./_head.pug
+include ./_components.pug
+include ./../components/header/header.pug
+include ./../components/footer/footer.pug
+
+
+doctype html
+html(lang='ru')
+  head
+    block head
+      +head()
+
+  body
+    .page.js-page
+
+      block header
+        +header()
+
+      main.main
+        .main__wrapper
+          block content
+
+      block footer
+        +footer()
+
+script(src="assets/js/main.min.js")

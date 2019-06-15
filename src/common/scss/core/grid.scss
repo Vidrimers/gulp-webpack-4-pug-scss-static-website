@@ -1,0 +1,151 @@
+$cols: $colCount;
+$sizeDesktop: 2rem;
+$sizeTablet: 1.5rem;
+$sizeMobile: 1rem;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include desktop {
+    margin: 0 0 - $sizeDesktop;
+
+    &.no-gut {
+      margin: 0;
+    }
+
+    @for $colNum from 1 to $cols {
+      .col-#{$colNum} {
+        flex: 0 0 (100% * $colNum / $cols);
+        max-width: (100% * $colNum / $cols);
+        padding: 0 $sizeDesktop;
+        .no-gut & {
+          padding: 0;
+        }
+      }
+
+      .col-auto {
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+        padding-left: $sizeDesktop;
+        padding-right: $sizeDesktop;
+      }
+    }
+  }
+
+  @include tablet {
+    margin: 0 0 - $sizeTablet;
+    
+    &.no-gut {
+      margin: 0;
+    }
+    
+    @for $colNum from 1 to $cols {
+      .col-#{$colNum} {
+        padding: 0 $sizeTablet;
+        
+        .no-gut & {
+          padding: 0;
+        }
+      }
+      
+      .col-t-#{$colNum} {
+        flex: 0 0 (100% * $colNum / $cols);
+        max-width: (100% * $colNum / $cols);
+        padding: 0 $sizeTablet;
+        
+        .no-gut & {
+          padding: 0;
+        }
+      }
+    }
+  }
+  
+  @include mobile {
+    margin: 0 0 - $sizeMobile;
+
+    @for $colNum from 1 to $cols {
+      .col-#{$colNum} {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 $sizeMobile;
+      }
+
+      .col-m-#{$colNum} {
+        flex: 0 0 (100% * $colNum / $cols) !important;
+        max-width: (100% * $colNum / $cols);
+        padding: 0 $sizeMobile;
+
+        .no-gut & {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  >.col {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+
+    &.no-grow {
+      flex-grow: 0;
+    }
+  }
+
+  &.ai-c {
+    align-items: center;
+  }
+  &.ai-s {
+    align-items: stretch;
+  }
+  &.ai-b {
+    align-items: baseline;
+  }
+  &.ai-fs {
+    align-items: flex-start;
+  }
+  &.ai-fe {
+    align-items: flex-end;
+  }
+  &.jc-sb {
+    justify-content: space-between;
+  }
+  &.jc-c {
+    justify-content: center;
+  }
+  &.jc-fe {
+    justify-content: flex-end;
+  }
+}
+
+.col-auto {
+  @include tablet {
+    .col-auto {
+      padding: 0 $sizeTablet;
+    }
+  }
+  @include mobile {
+    .col-auto {
+      padding: 0 $sizeMobile;
+    }
+  }
+}
+
+
+/* for custom needs
+.col-m-12 100%
+.col-10 83.333333%
+.col-9 75%
+.col-8 66.666667%
+.col-7 58.333333%
+.col-6 50%
+.col-5 41.666667%
+.col-4 33.333333%
+.col-3 25%
+.col-2 16.666667%
+.col-1 8.3333333%
+
+*/
