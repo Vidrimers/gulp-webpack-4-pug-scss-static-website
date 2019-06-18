@@ -1,11 +1,11 @@
 {
-	"name": "gulp-webpack-4-pug-scss-static-website",
-	"version": "1.0.0",
+  "name": "gulp-webpack-4-pug-scss-static-website",
+  "version": "1.0.0",
   "author": "Alexander Shiryakov (alcryalcry@gmail.com)",
   "contributors": [
     "Alexander Shiryakov (alcryalcry@gmail.com)"
   ],
-	"main": "gulpfile.js",
+  "main": "gulpfile.js",
   "description": "Frontend scaffolding tool based on Gulp 4 and Webpack 4 using pug, SCSS, JSON-server",
   "scripts": {
     "dev": "gulp dev",
@@ -34,6 +34,7 @@
     "gulp-pug": "^4.0.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-svg-sprite": "^1.5.0",
     "node-sass": "^4.12.0",
     "pug-plain-loader": "^1.0.0",
     "vue-loader": "^15.7.0",

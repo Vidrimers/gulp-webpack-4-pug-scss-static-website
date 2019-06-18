@@ -12,6 +12,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const imagemin = require('gulp-imagemin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const svgSprite = require('gulp-svg-sprite');
 
 sass.compiler = require('node-sass');
 
@@ -122,9 +123,23 @@ function images() {
 
 
 function assets() {
-	return gulp.src(['!src/static/img', 'src/static/**/*'])
+	return gulp.src(['!src/static/img', '!src/static/svg', 'src/static/**/*'])
 							.pipe(gulp.dest((config.dest + '/assets')))
 							.pipe(browserSync.stream());
+}
+
+
+function svg() {
+	return gulp.src('src/static/svg/*.svg')
+							.pipe(svgSprite({
+								mode: {
+									symbol: {
+										dest: '',
+										sprite: 'symbol.svg'
+									}
+								}
+							}))
+							.pipe(gulp.dest('dist/assets/svg'));
 }
 
 
@@ -135,7 +150,7 @@ function clean() {
 
 function build() {
 	return gulp.series(clean, 
-		gulp.parallel(html, styles, scripts, images, assets)
+		gulp.parallel(html, styles, scripts, images, assets, svg)
 	)
 }
 
@@ -153,6 +168,7 @@ function watch() {
 	gulp.watch('./src/**/*.js', scripts)
 	gulp.watch('./src/static/img/*', images)
 	gulp.watch('./src/static/*', assets)
+	gulp.watch('./src/static/svg/*', svg)
 }
 
 
