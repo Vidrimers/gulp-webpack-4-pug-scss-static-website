@@ -1,4 +1,4 @@
-# Project guide of webpack-4-pug-scss-static-website
+# Project guide of gulp-webpack-4-pug-scss-static-website
 
 Frontend scaffolding tool based on Gulp 4 and Webpack 4 using pug, SCSS, JSON-server
 
