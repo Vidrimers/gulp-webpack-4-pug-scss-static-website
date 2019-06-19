@@ -1,14 +1,13 @@
 extends ../layouts/layout.pug
 
-//- SVG
-//- include ../static/svg/icon
-
 block content
   .container
     a.link.js-btn(href="/page.html") link to page
     +testvue
 
     .container
+      div(style="height: 20rem; width: 20rem; color: blue;")
+        +svg({iconName: 'arrow'})
       .row
         .col-6.col-t-6
           h1(style="height: 20rem; background-color: lightgreen;") col-6 <br> col-t-6

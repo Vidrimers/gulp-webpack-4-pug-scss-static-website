@@ -81,7 +81,8 @@ const webpackConfig = {
 function html() {
   return gulp.src('./src/pages/**/*.pug')
 							.pipe(pug({
-								basedir: './'
+								basedir: './',
+								pretty: true
 							}))
 							.pipe(gulp.dest(config.dest))
 							.pipe(gulp.dest(config.dest))
@@ -149,8 +150,8 @@ function clean() {
 
 
 function build() {
-	return gulp.series(clean, 
-		gulp.parallel(html, styles, scripts, images, assets, svg)
+	return gulp.series([clean, svg], 
+		gulp.parallel(html, styles, scripts, images, assets)
 	)
 }
 

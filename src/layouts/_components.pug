@@ -1,1 +1,11 @@
 include ../components/testvue/testvue.pug
+
+
+mixin svg(data = {})
+  -
+    const {
+      iconName
+    } = data;
+
+  svg
+    use(xlink:href=`#${iconName}`)
