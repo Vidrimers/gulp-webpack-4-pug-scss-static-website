@@ -8,8 +8,8 @@
   "main": "gulpfile.js",
   "description": "Frontend scaffolding tool based on Gulp 4 and Webpack 4 using pug, SCSS, JSON-server",
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build",
+    "dev": "set NODE_ENV=development&& gulp dev",
+    "build": "set NODE_ENV=production&& gulp build",
     "api": "cd mockapi && npm run devapi"
   },
   "dependencies": {

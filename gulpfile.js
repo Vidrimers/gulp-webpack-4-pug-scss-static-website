@@ -18,7 +18,7 @@ sass.compiler = require('node-sass');
 
 let config = {
 	dest: './dist',
-	isDev: false,
+	isDev: !process.env.NODE_ENV || process.env.NODE_ENV === 'development',
   openAnalyzer: false
 }
 
@@ -60,7 +60,7 @@ const webpackConfig = {
 					{
 						resourceQuery: /^\?vue/,
 						use: ['pug-plain-loader']
-					}, 
+					},
 				]
 			},
 			{
@@ -150,7 +150,7 @@ function clean() {
 
 
 function build() {
-	return gulp.series([clean, svg], 
+	return gulp.series([clean, svg],
 		gulp.parallel(html, styles, scripts, images, assets)
 	)
 }
