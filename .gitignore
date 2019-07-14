@@ -2,6 +2,8 @@
 [Rr]eleases/
 [Bb]uild/
 [Dd]ist/
-package-lock.json
-report.html
 node_modules
+npm-debug.log
+report.html
+.nuxt
+package-lock.json
